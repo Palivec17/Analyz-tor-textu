@@ -117,3 +117,4 @@ print("\n Děkuji za použití aplikace. Přeji hezký den!")
 
 
 
+
