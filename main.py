@@ -83,6 +83,15 @@ def analyzuj_text(text):
         'cetnosti_delky': dict(sorted(cetnosti.items()))
     }
 
+def vykresli_graf(cetnosti):
+    print("----------------------------------------")
+    print("DEL|  VÝSKYTY        |POČET")
+    print("----------------------------------------")
+    for delka, pocet in cetnosti.items():
+        hvezdy = '*' * pocet
+        print(f"{delka:>3}|{hvezdy:<20}|{pocet}")
+
+
 
 
 
