@@ -63,6 +63,7 @@ def vyber_text(texty):
         exit()
     return texty[cislo - 1]
 
+# Funkce analyzující slova textů
 def analyzuj_text(text):
     slova = text.split()
     pocet_slov = len(slova)
@@ -90,6 +91,27 @@ def vykresli_graf(cetnosti):
     for delka, pocet in cetnosti.items():
         hvezdy = '*' * pocet
         print(f"{delka:>3}|{hvezdy:<20}|{pocet}")
+
+# Spuštění programu
+if not prihlaseni():
+    exit()
+
+vybrany_text = vyber_text(texty)
+vysledky = analyzuj_text(vybrany_text)
+
+# výstupy
+print("----------------------------------------")
+print(f"V textu je {vysledky['pocet_slov']} slov.")
+print(f"{vysledky['velke_pismeno']} slov začíná velkým písmenem.")
+print(f"{vysledky['velkymi_pismeny']} slov je psáno VELKÝMI písmeny.")
+print(f"{vysledky['malymi_pismeny']} slov je psáno malými písmeny.")
+print(f"{vysledky['pocet_cisel']} číselných řetězců.")
+print(f"Součet všech čísel je {vysledky['soucet_cisel']}")
+print("----------------------------------------")
+
+vykresli_graf(vysledky['cetnosti_delky'])
+
+print("\n Děkuji za použití aplikace. Přeji hezký den!")
 
 
 
