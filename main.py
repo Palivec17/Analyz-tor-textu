@@ -1,4 +1,4 @@
-TEXTS = [
+texty = [
     '''Situated about 10 miles west of Kemmerer,
     Fossil Butte is a ruggedly impressive
     topographic feature that rises sharply
@@ -27,9 +27,27 @@ TEXTS = [
 ]
 
 # uživatelé a hesla
-USERS = {
+uživatele = {
     "bob": "123",
     "ann": "pass123",
     "mike": "password123",
     "liz": "pass123"
 }
+
+import re # načte modul pro regulární výrazy
+from collections import Counter # načtu třídu Counter, která slouží k počítání výskytů prvků
+
+# Funkce pro přihlášení uživatele
+def prihlaseni():
+    uzivatel = input("uživatelské jméno:")
+    heslo = input("heslo:")
+    if uzivatele.get(uzivatel) == heslo:
+        print("----------------------------------------")
+        print(f"Vítej v aplikaci {uzivatel}, můžeš pokračovat v analýze textu.")
+        print(f"Máme {len(texty)} texty k analýze.")
+        print("----------------------------------------")
+        return True
+    else:
+        print("Neplatná kombinace jména a hesla. Program bude ukončen.")
+        return False
+
