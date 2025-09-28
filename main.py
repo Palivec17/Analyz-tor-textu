@@ -27,7 +27,7 @@ texty = [
 ]
 
 # uživatelé a hesla
-uživatele = {
+uzivatele = {
     "bob": "123",
     "ann": "pass123",
     "mike": "password123",
@@ -62,6 +62,27 @@ def vyber_text(texty):
         print("Zadané číslo není v rozsahu dostupných textů. Program bude ukončen.")
         exit()
     return texty[cislo - 1]
+
+def analyzuj_text(text):
+    slova = text.split()
+    pocet_slov = len(slova)
+    velke_pismeno = [w for w in slova if w.istitle()]
+    velkymi_pismeny = [w for w in slova if w.isupper() and w.isalpha()]
+    malymi_pismeny = [w for w in slova if w.islower()]
+    cisla = [int(w) for w in slova if w.isdigit()]
+    delky_slov = [len(re.sub(r'\W', '', w)) for w in slova if re.sub(r'\W', '', w)]
+
+    cetnosti = Counter(delky_slov)
+    return {
+        'pocet_slov': pocet_slov,
+        'velke_pismeno': len(velke_pismeno),
+        'velkymi_pismeny': len(velkymi_pismeny),
+        'malymi_pismeny': len(malymi_pismeny),
+        'pocet_cisel': len(cisla),
+        'soucet_cisel': sum(cisla),
+        'cetnosti_delky': dict(sorted(cetnosti.items()))
+    }
+
 
 
 
