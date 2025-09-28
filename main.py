@@ -51,3 +51,17 @@ def prihlaseni():
         print("Neplatná kombinace jména a hesla. Program bude ukončen.")
         return False
 
+# Funkce pro výběr čísla analyzovaného textu
+def vyber_text(texty):
+    volba = input(f"Zadej číslo mezi 1 a {len(texty)} pro výběr textu: ")
+    if not volba.isdigit():
+        print("Neplatný vstup – očekává se číslo. Program bude ukončen.")
+        exit()
+    cislo = int(volba)
+    if not (1 <= cislo <= len(texty)):
+        print("Zadané číslo není v rozsahu dostupných textů. Program bude ukončen.")
+        exit()
+    return texty[cislo - 1]
+
+
+
